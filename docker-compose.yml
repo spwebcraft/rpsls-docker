@@ -1,6 +1,6 @@
 app:
     build: app
-    container_name: mmp_app
+    container_name: rpsls_app
     tty: true
     volumes:
         - ./code/symfony:/var/www/symfony
@@ -12,7 +12,7 @@ app:
         - ./share/sessions:/var/lib/php5/sessions
 
 db:
-    container_name: mmp_mongo
+    container_name: rpsls_mongo
     image: mongo:2.6
     ports:
         - 28000:27017
@@ -21,7 +21,7 @@ db:
 
 php:
     build: php-fpm
-    container_name: mmp_php
+    container_name: rpsls_php
     links:
         - db
     ports:
@@ -31,7 +31,7 @@ php:
 
 nginx:
     build: nginx
-    container_name: mmp_nginx
+    container_name: rpsls_nginx
     links:
         - "db:database"
         - php
