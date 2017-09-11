@@ -4,12 +4,8 @@ app:
     tty: true
     volumes:
         - ./code/symfony:/var/www/symfony
-        - ./share/cache:/var/www/symfony/app/cache
-        - ./share/images:/var/www/symfony/web/images
         - ./share/logs/symfony:/var/www/symfony/app/logs
-        - ./share/fonts:/var/www/symfony/web/fonts
         - ./share/logs/nginx:/var/log/nginx
-        - ./share/sessions:/var/lib/php5/sessions
 
 db:
     container_name: rpsls_mongo
