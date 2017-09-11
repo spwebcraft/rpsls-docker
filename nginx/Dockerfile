@@ -1,12 +1,11 @@
 FROM debian:jessie
-MAINTAINER Darren Green <darren.green@meetingprotocol.com>
 
 RUN apt-get update && apt-get install -y nginx
 
 COPY nginx.conf /etc/nginx/
-COPY mmp.conf /etc/nginx/sites-available/
+COPY rpsls.conf /etc/nginx/sites-available/
 
-RUN ln -s /etc/nginx/sites-available/mmp.conf /etc/nginx/sites-enabled/mmp
+RUN ln -s /etc/nginx/sites-available/mmp.conf /etc/nginx/sites-enabled/rpsls
 RUN rm /etc/nginx/sites-enabled/default
 
 # RUN echo "upstream php-upstream { server php:9000; }" > /etc/nginx/conf.d/upstream.conf
